@@ -38,6 +38,7 @@ const Login = () => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
 
+				toast.error(errorMessage);
 			});
 	};
 
