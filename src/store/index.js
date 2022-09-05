@@ -31,7 +31,6 @@ const tokenSlice = createSlice({
 		tokenStorage(state, action) {
 			state.token = action.payload;
 			state.isLoggin = true;
-			// console.log("tokenStorage");
 		},
 	},
 });

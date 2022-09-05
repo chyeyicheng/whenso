@@ -10,7 +10,6 @@ const Nav = () => {
 
 	const logoutHandler = () => {
 		localStorage.removeItem("token");
-		console.log("logout");
 		dispatch(tokenActions.removeToken());
 		toast.success("Logout Success");
 	};

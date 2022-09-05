@@ -18,7 +18,6 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(email, password);
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
@@ -39,7 +38,6 @@ const Login = () => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
 
-				console.log(errorCode, errorMessage);
 			});
 	};
 
