@@ -1,0 +1,19 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #141416;
+	height: 60px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+	background-color: red;
+	cursor: pointer;
+	font-size: 20px;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	outline: none;
+}

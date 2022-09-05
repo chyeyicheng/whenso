@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
+
+import { useSelector } from "react-redux";
+
+import Nav from "./components/Nav";
+
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const isLoggin = useSelector((state) => state.isLoggin);
+	const token = useSelector((state) => state.token);
+
+	const localToken = localStorage.getItem("token");
+
+	return (
+		<div>
+			<Nav />
+			<Switch>
+				<Route path="/" exact component={LoginPage} />
+				<Route path="/register" component={RegisterPage} />
+
+				{localToken && (
+					<Route path="/success">
+						<SuccessPage />
+					</Route>
+				)}
+
+				{!localToken && <Redirect to="/" />}
+
+				<Route path="*">
+					<Redirect to="/" />
+				</Route>
+			</Switch>
+		</div>
+	);
 }
 
 export default App;
